@@ -34,8 +34,8 @@ class SettingsController extends Controller
         foreach ($validation as $key => $value) {
             Settings::updateOrCreate(['key' => $key], ['value' => $value]);
         }
-        dd(Settings::pluck('value', 'key')->toArray()); // To see updated values
-        //return redirect()->back()->with('success', 'Settings updated successfully.');
+        // dd(Settings::pluck('value', 'key')->toArray()); // To see updated values
+        return redirect()->back()->with('success', 'Settings updated successfully.');
     }
 
 }
