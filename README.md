@@ -29,5 +29,4 @@ Laravel offers the most extensive documentation and video tutorials among modern
 
 Whether you're a beginner or experienced developer, Laravel has the resources to boost your skills and productivity.
 
----
->>>>>>> 7241b42c20ffc435046ab7629a71875d4372d5da
+
