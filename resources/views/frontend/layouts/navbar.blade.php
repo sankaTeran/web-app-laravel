@@ -3,7 +3,7 @@
         <div class="d-flex align-items-center h-100">
             <a href="#" class="navbar-brand" style="height: 125px;">
                 <h1 class="text-primary mb-0"><i class="fas fa-bolt"></i> {{ $main_settings['site_name'] }}</h1>
-                <img src="FrontEnd/img/logo.png" alt="Logo"> 
+                {{-- <img src="FrontEnd/img/logo.png" alt="Logo">  --}}
             </a>
         </div>
         <div class="w-100 h-100">
@@ -45,7 +45,7 @@
                 <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-lg-end">
                     <a href="#" class="navbar-brand-2">
                         <h1 class="text-primary mb-0"><i class="fas fa-bolt"></i> Electra</h1>
-                        <img src="FrontEnd/img/logo.png" alt="Logo">
+                        {{-- <img src="FrontEnd/img/logo.png" alt="Logo"> --}}
                     </a>  
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                         <span class="fa fa-bars"></span>
