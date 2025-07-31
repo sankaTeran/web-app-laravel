@@ -44,4 +44,14 @@
             </x-primary-button>
         </div>
     </form>
+    <!-- Social Login Buttons -->
+    <div class="mt-6 text-center">
+        <p class="mb-2 text-gray-500">Or login with</p>
+        <a href="{{ url('/auth/github') }}" class="inline-block px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700 mr-2">
+            Login with GitHub
+        </a>
+        <a href="{{ url('/auth/google') }}" class="inline-block px-4 py-2 bg-red-600 text-white rounded hover:bg-red-500">
+            Login with Google
+        </a>
+    </div>
 </x-guest-layout>
