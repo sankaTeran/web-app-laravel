@@ -15,8 +15,12 @@ use App\Models\Permission;
 use App\Models\Testimonial;
 use App\Models\Posts;
 use App\Models\User;
+use App\Http\Controllers\SocialAuthController;
 
 
+
+Route::get('/auth/{provider}', [SocialAuthController::class, 'redirect']);
+Route::get('/auth/{provider}/callback', [SocialAuthController::class, 'callback']);
 
 Route::get('/', function () {
 
