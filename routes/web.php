@@ -85,6 +85,7 @@ Route::controller(PostsController::class)->middleware(['auth','verified'])->grou
     Route::post('/postsStore','storePost')->name('posts.store');
     Route::post('/postsUpdate','updatePost')->name('posts.update');
     Route::get('/postsDelete/{id}','deletePost')->name('posts.delete');
+    Route::post('/commentIndex/{id}','indexComment')->name('comments.index');
 });
 
  Route::controller(PermissionController::class)->middleware(['auth','verified'])->group(function (){
@@ -113,5 +114,16 @@ Route::controller(PostsController::class)->middleware(['auth','verified'])->grou
     Route::post('/userUpdate','updateuser')->name('user.update');
     Route::get('/deleteUser/{id}','deleteuser')->middleware(['role:super admin'])->name('user.delete');
  });
+
+//    Route::controller(CommentController::class)->middleware(['auth','verified','role:super admin|admin|reader'])->group(function (){
+    
+//     Route::get('/CommentIndex','index');
+//     Route::post('/CommentUser','storeComment')->name('comment.store');
+//     Route::post('/CommentUpdate','updateComment')->name('comment.update');
+//     Route::get('/deleteComment/{id}','deleteComment')->name('user.delete');
+//  });
+
+
+    Route::post('/commentIndex/{id}', [PostsController::class, 'indexComment'])->name('comments.index');
 
 require __DIR__.'/auth.php';

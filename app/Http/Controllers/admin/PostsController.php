@@ -4,14 +4,17 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Posts;
+use App\Models\Comment;
+use Auth;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
     public function index(){
-        $posts = Posts::all();
-        return view('admin.posts',compact('posts'));
-    }
+    $posts = Posts::with(['comments.user'])->get(); // eager load comments + commenter
+    return view('admin.posts', compact('posts'));
+}
+
 
     public function storePost(Request $request){
 
@@ -64,4 +67,29 @@ class PostsController extends Controller
         $post->delete();
         return redirect()->back()->with('success','Post deleted successfully! ');
     }
+
+    public function indexComment(Request $request, $id)
+{
+    // Validate guest comment input
+    $validated = $request->validate([
+        'comment' => 'required|string|max:1000',
+        'blog_id' => 'required|integer|exists:posts,id',
+    ]);
+
+    $save = new Comment;
+    $save->user_id = Auth::check() ? Auth::user()->id : null;
+    $save->blog_id = $request->blog_id;
+    $save->comment = $request->comment;
+    $save -> save();
+
+    // dd([
+    //     'route_id' => $id,
+    //     'form_data' => $request->all()
+    // ]);
+
+    return redirect()->back()->with('success', 'Comment submitted successfully!');
+}
+
+    
+
 }

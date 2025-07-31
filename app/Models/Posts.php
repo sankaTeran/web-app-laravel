@@ -12,4 +12,11 @@ class Posts extends Model
         'body',
         'image',
     ]; 
+
+    public function comments()
+{
+    return $this->hasMany(\App\Models\Comment::class, 'blog_id')->orderBy('blog_comment.id', 'desc');
+    
+}
+
 }
