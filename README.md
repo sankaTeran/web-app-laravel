@@ -1,4 +1,4 @@
-# web-app-laravel
+# web-app-laravel-teran
 
 ![Laravel Logo](https://laravel.com/img/logomark.min.svg)
 
